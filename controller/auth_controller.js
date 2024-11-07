@@ -25,6 +25,7 @@ exports.signup = async (req, res) => {
   });
 
   const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+  console.log(token)
   const url = `http://localhost:3000/api/auth/verify/${token}`;
 
   try {
